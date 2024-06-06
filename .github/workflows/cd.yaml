@@ -17,5 +17,5 @@ jobs:
       run: |
         curl -sSL https://graphql-hive.com/install.sh | sh
         hive schema:publish "schema.graphql" \
-            --registry.accessToken ${{ env.HIVE_TOKEN }} \
+            --registry.accessToken $HIVE_TOKEN \
             --github
