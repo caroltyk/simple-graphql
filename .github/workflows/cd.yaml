@@ -1,6 +1,9 @@
 on:
   push:
-    branches: [main]
+    branches:
+      - main
+      - staging
+      - development
 jobs:
   publish:
     runs-on: ubuntu-22.04
@@ -10,7 +13,7 @@ jobs:
     - name: schema publish
       env:
         HIVE_TOKEN: ${{ secrets.HIVE_TOKEN }}
-        HIVE_ENDPOINT: ${{ secrets.HIVE_ENDPOINT }}
+        HIVE_ENDPOINT: ${{ vars.HIVE_ENDPOINT }}
       run: |
         curl -sSL https://graphql-hive.com/install.sh | sh
         hive schema:publish "schema.graphql" \

@@ -1,8 +1,11 @@
 on:
   pull_request:
-    branches: [main]
+    branches: 
+      - main
+      - staging
+      - development
 jobs:
-  check:
+  schema_check:
     runs-on: ubuntu-22.04
     steps:
     - name: checkout
